@@ -66,27 +66,34 @@ public class Heap {
 	}
 
 	private void downHeapify(int parent) {
-		System.out.println("pppp"+parent);
 		int child1=(2*parent)+1;
 		int child2=(2*parent)+2;
-		if((child1>data.size()-1)&&(child2>data.size()-1))
-		{
-			return;
-		}
 		System.out.println(child1+""+child2);
 		int min_index=findMinIndex(parent,child1,child2);
-		System.out.println(min_index);
+		if(min_index!=parent)
+		{
 		swap(min_index,parent);
 		downHeapify(min_index);
 		
+		}
 		
 		
 	}
 
 	private int findMinIndex(int parent, int child1, int child2) {
-		int x=Integer.min(data.get(child1),data.get(child2));
-		int y=Integer.min(x, data.get(parent));
-		return data.indexOf(y);
+		System.out.println("parent"+parent);
+		System.out.println("child1"+child1);
+		System.out.println("child2"+child2);
+		int x=data.get(parent);
+		if(child1<data.size()) {
+		x=Integer.min(data.get(child1),data.get(parent));
+		
+		}
+		if(child2<data.size()) {
+			x=Integer.min(data.get(child2),x);
+			}
+		
+		return data.indexOf(x);
 	}
 
 }
