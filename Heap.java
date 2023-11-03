@@ -68,7 +68,6 @@ public class Heap {
 	private void downHeapify(int parent) {
 		int child1=(2*parent)+1;
 		int child2=(2*parent)+2;
-		System.out.println(child1+""+child2);
 		int min_index=findMinIndex(parent,child1,child2);
 		if(min_index!=parent)
 		{
@@ -81,9 +80,7 @@ public class Heap {
 	}
 
 	private int findMinIndex(int parent, int child1, int child2) {
-		System.out.println("parent"+parent);
-		System.out.println("child1"+child1);
-		System.out.println("child2"+child2);
+		
 		int x=data.get(parent);
 		if(child1<data.size()) {
 		x=Integer.min(data.get(child1),data.get(parent));

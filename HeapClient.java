@@ -28,20 +28,20 @@ public class HeapClient {
 		heap.displayHeap();
 		
 //		
-		System.out.println(heap.remove()+"vvvvvvvvvvvvv");
+		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		
-		System.out.println(heap.remove()+"vvvvvvvvvvvvv");
+		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		
 
-		System.out.println(heap.remove()+"vvvvvvvvvvvvv");
+		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		
-		System.out.println(heap.remove()+"vvvvvvvvvvvvv");
+		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		
-		System.out.println(heap.remove()+"vvvvvvvvvvvvv");
+		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		
 //		
