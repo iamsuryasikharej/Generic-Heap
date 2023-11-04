@@ -3,7 +3,7 @@ public class HeapClient {
 
 	public static void main(String[] args) {
 
-		Heap heap=new Heap();
+		Heap<Integer> heap=new Heap<>();
 		heap.add(10);
 		heap.displayHeap();
 
@@ -27,7 +27,7 @@ public class HeapClient {
 		heap.add(0);
 		heap.displayHeap();
 		
-//		
+		
 		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		
@@ -35,6 +35,18 @@ public class HeapClient {
 		heap.displayHeap();
 		
 
+		System.out.println(heap.remove()+"has been removed");
+		heap.displayHeap();
+		
+		System.out.println(heap.remove()+"has been removed");
+		heap.displayHeap();
+		
+		System.out.println(heap.remove()+"has been removed");
+		heap.displayHeap();
+		
+		System.out.println(heap.remove()+"has been removed");
+		heap.displayHeap();
+		
 		System.out.println(heap.remove()+"has been removed");
 		heap.displayHeap();
 		

@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class Heap {
-	ArrayList<Integer> data=new ArrayList<Integer>(); 
-	public void add(int item)
+public class Heap<T extends Comparable<T>> {
+	ArrayList<T> data=new ArrayList<T>(); 
+	public void add(T item)
 	{
 		data.add(item);
 		upheapify(data.size()-1);
@@ -23,7 +23,7 @@ public class Heap {
 				return;
 			}
 			
-			if(data.get(parent)>data.get(index))
+			if(heapCondt(parent,index))
 			{
 				swap(parent,index);
 				upheapify(parent);
@@ -31,12 +31,23 @@ public class Heap {
 			
 			}
 			
+private boolean heapCondt(int parent, int index) {
+		if(data.get(parent).compareTo(data.get(index))>0)
+		{
+			        return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 //		}
 	
 
 	private void swap(int i, int index) {
-		int a=data.get(i);
-		int b=data.get(index);
+		T a=data.get(i);
+		T b=data.get(index);
 		
 		data.remove(i);
 		data.add(i, b);
@@ -55,14 +66,27 @@ public class Heap {
 	}
 	
 	
-	public int remove() {
-		int remove_index=0;
-		int x=data.get(remove_index);
-		swap(0,data.size()-1);
-		data.remove(data.size()-1);
+	public T remove() {
+		T x=null;
+		if(!(data.size()==0))
+		{
+			
+			int remove_index=0;
+			x=data.get(remove_index);
+			swap(0,data.size()-1);
+			data.remove(data.size()-1);
+			
+			downHeapify(0);
+			
+			return x;
+		}
 		
-		downHeapify(0);
-		return x;
+		
+		else {
+			System.err.println("Nothing left to remove bro");
+			return null;
+		}
+		
 	}
 
 	private void downHeapify(int parent) {
@@ -81,16 +105,26 @@ public class Heap {
 
 	private int findMinIndex(int parent, int child1, int child2) {
 		
-		int x=data.get(parent);
+
+		int x=parent;
+		
 		if(child1<data.size()) {
-		x=Integer.min(data.get(child1),data.get(parent));
+
+		
+		if((data.get(child1).compareTo(data.get(parent))<0)){
+			x=child1;
+		}
 		
 		}
 		if(child2<data.size()) {
-			x=Integer.min(data.get(child2),x);
+			if((data.get(child2).compareTo(data.get(x)))<0){
+			x=child2;
 			}
+			
 		
-		return data.indexOf(x);
+		
+	}
+		return x;
 	}
 
 }
